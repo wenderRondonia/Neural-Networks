@@ -1,6 +1,43 @@
 # Neural-Networks
 example of neural networks/genetic algorithms in Unity3D
 
+Esse é um exemplo de redes neurais com algoritimos genéticos
+
+eu segui o tutorial em c++ no http://www.ai-junkie.com/
+
+o código está em c# e em português usando o unity3D como interface,
+
+Existem os tanques que tem que coletar os pontos verdes espalhados no chão,
+
+quando pegam os pontos verdes, os pontos desaparecem e reaperece num lugar aleatório
+
+Existem 4 coisas(4 números) que o tanque vê e que será o input pra rede neural: 
+
+dois deles representam o vetor apontando pro ponto verde mais perto
+
+e os outros dois representam a direção que o tanque está olhando
+
+assim, dados esses inputs o tanque tem que desvendar como transformar eles para poder pegar o ponto
+
+o output da rede neural são dois números:
+o quanto que ele pode virar pra esquerda ou pra direita,
+
+esses dois números vão ditar sua rotação,
+
+os pesos das redes são atualizados na interação (algoritimo genético)
+
+e são modificados de acordo com um fitness apropriado
+
+os mais qualificados "sobrevivem" e fazem crossover com os demais
+
+para que todos fiquem com a melhor estratégia
+
+bem, depois de umas 50 gerações eles ficam razoavelmente bons em achar o ponto
+
+boa sorte, caso o código esteja muito complicado pra entender a idéia geral
+
+mande um email: wenderliborio@gmail.com
+
 
 This is a example of neural networks plus genetic algorithms, 
 
