@@ -36,7 +36,7 @@ bem, depois de umas 50 gerações eles ficam razoavelmente bons em achar o ponto
 
 boa sorte, caso o código esteja muito complicado pra entender a idéia geral
 
-mande um email: wenderliborio@gmail.com
+mande um email: wender_jipa0@hotmail.com
 
 
 This is a example of neural networks plus genetic algorithms, 
@@ -53,7 +53,7 @@ and the other two represent the direction the tank is pointing.
 
 These four inputs give the tank's brain - its neural network
 
-- everything it needs to know to figure out how to orient itself towards the green points 
+ everything it needs to know to figure out how to orient itself towards the green points 
 
 (tanks can control how to rotate) aand after 50 generations they can find the green points very fast.
 
