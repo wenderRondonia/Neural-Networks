@@ -39,7 +39,6 @@ public class NeuralNetwork{
         return weights;
     }
 
-
     public void ReplaceWeights( List<float> weights){
         int currentWeight = 0;
         for (int i = 0; i < hiddenLayerCount + 1; ++i)
@@ -70,11 +69,15 @@ public class NeuralNetwork{
                 int inputCountLocal = layers[i].neurons[j].inputCount;
                 for (int k=0; k<inputCountLocal - 1; ++k)                    
                     networkInput += layers[i].neurons[j].weights[k] * inputs[currentWeight++];
-                //add bias
-                if(inputCountLocal-1==-1)
-                    networkInput += layers[i].neurons[j].weights[layers[i].neurons[j].weights.Count- 1] * Settings.Bias;
-                else
-                    networkInput += layers[i].neurons[j].weights[inputCountLocal-1] * Settings.Bias;
+                
+                var sum = 0f;
+                if(inputCountLocal-1==-1){
+                   sum+=layers[i].neurons[j].weights[layers[i].neurons[j].weights.Count- 1]; 
+                }else{
+                    sum+=layers[i].neurons[j].weights[inputCountLocal-1];
+                }
+
+                networkInput +=  sum+ Settings.Bias;
                                            
                 outputs.Add(Sigmoid(networkInput,Settings.ActivationResponse));                             
                 currentWeight = 0;

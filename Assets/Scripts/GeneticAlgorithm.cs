@@ -122,14 +122,11 @@ public class GeneticAlgorithm  {
     }
   
     public List<Genome> Epoch(List<Genome> oldPopulation){ 
-        
+        Reset();        
         genomes = oldPopulation;
-        Reset();
         genomes.Sort(CompeteGenome);
-        
-        UpdateStats();
-        
         var newPopulation=new List<Genome>();
+        UpdateStats();
 
         if ((Settings.EliteCopyCount * (Settings.EliteNumber % 2 ))==0 ){
             NaturalSelection(Settings.EliteNumber,Settings.EliteCopyCount,newPopulation);
@@ -155,5 +152,7 @@ public class GeneticAlgorithm  {
         return genomes;
     
     }
+
+
 
 }
