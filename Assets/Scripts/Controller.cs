@@ -7,15 +7,15 @@ public class Controller{
     List<Genome> Apopulacao = new List<Genome>();
     List<Tank> tanks = new List<Tank>();
     List<Vector2> objetives=new List<Vector2>();
-    GeneticAlgorithm geneticAlgorithm;
-    int totalObjectiveFound;
-    float time;
+    public GeneticAlgorithm geneticAlgorithm;
+    public int totalObjectiveFound;
+    public float time;
     int tankCount;
     int objectiveCount;
     int weightCountNeuralNetwork;
 
     int cyclesPerGeneration;
-    int generationCount;
+    public int generationCount;
     int windowX, windowY;
     
     public Controller(GameObject tank, GameObject objective){
@@ -96,17 +96,5 @@ public class Controller{
         return true;
     }
 
-    public void Render(){ 
-        GUI.Box(new Rect(10, 10, 100, 30), " generation= " + generationCount);
-        GUI.Box(new Rect(10, 60, 200, 30), " best="+ geneticAlgorithm.bestFitness);
-        GUI.Box(new Rect(10, 95, 200, 30), " median=" + geneticAlgorithm.medianFitness);
-        GUI.Box(new Rect(10, 130, 200, 30), " worst=" + geneticAlgorithm.worstFitness);
 
-        GUI.Box(new Rect(10, Screen.height-50, 300, 40), " Objectives/sec=" +totalObjectiveFound/time);
-
-        GUI.Box(new Rect(Screen.width-10 - 100, 10, 100, 40), "r-restart ");
-        GUI.Box(new Rect(Screen.width - 10 - 300, 50, 300, 40), "up-fast / down-slow");
-        
-        tanksObjects[geneticAlgorithm.bestGenome].GetComponent<Renderer>().material.color = Color.red;
-    }
 }

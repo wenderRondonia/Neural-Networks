@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Main : MonoBehaviour {
     public GameObject tank,objetive;
+    public Text text;
     Controller controller = null;
     int speed = 1;
     float aux = 0;
@@ -29,12 +30,23 @@ public class Main : MonoBehaviour {
         }
         if (Input.GetKeyDown("r"))
             controller = new Controller(tank, objetive);
-                
+        UpdateUI();      
 	}
-    void OnGUI(){
-        controller.Render();
-        GUI.Box(new Rect(Screen.width - 10 -100, 110, 100, 40), "speed="+speed+"x");
-          
+
+ 
+    void UpdateUI(){
+        
+        text.text = " generation= " + controller.generationCount
+        +"\n best="+ controller.geneticAlgorithm.bestFitness
+        +"\n median=" + controller.geneticAlgorithm.medianFitness
+        +"\n worst=" + controller.geneticAlgorithm.worstFitness
+        +"\n objectives/sec=" + controller.totalObjectiveFound/controller.time
+        +"\n speed="+speed+"x"
+        +"\n Controls: r-restart up-fast down-slow";
+
+        
+        controller.tanksObjects[controller.geneticAlgorithm.bestGenome].GetComponent<Renderer>().material.color = Color.red;
     }
+
     
 }
