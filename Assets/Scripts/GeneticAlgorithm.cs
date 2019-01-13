@@ -128,9 +128,11 @@ public class GeneticAlgorithm  {
         var newPopulation=new List<Genome>();
         UpdateStats();
 
-        if ((Settings.EliteCopyCount * (Settings.EliteNumber % 2 ))==0 ){
-            NaturalSelection(Settings.EliteNumber,Settings.EliteCopyCount,newPopulation);
+        if ((Settings.EliteCopyCount * (Settings.EliteNumber % 2 ))!=0 ){
+           Debug.Log("wrong settings elite");
         }
+         
+        NaturalSelection(Settings.EliteNumber,Settings.EliteCopyCount,newPopulation);
 
         while (newPopulation.Count < populationSize){
 
